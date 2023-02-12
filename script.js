@@ -1,4 +1,14 @@
-const h2 = document.createElement("h2");
-h2.textContent = "This content added by JavaScript";
+var coll = document.getElementsByClassName("collapsible");
+var i;
 
-document.querySelector("body").appendChild(h2);
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
